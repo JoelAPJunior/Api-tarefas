@@ -2,10 +2,10 @@
 {
     public class ChamadoDto
     {
-    public required string titulo {  get; set; }
+        internal string titulo;
 
-    public required string Descricao { get; set; }
+        public required string Titulo { get; set; }
 
-
+        public required string Descricao { get; set; }
     }
 }

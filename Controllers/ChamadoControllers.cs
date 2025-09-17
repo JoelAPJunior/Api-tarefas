@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http; // Importa funcionalidades relacionadas a requisições HTTP.
 using Microsoft.AspNetCore.Mvc; // Importa funcionalidades para criar APIs com controllers.
-using aula2ApiServico.Models.Dtos; // Importa o namespace onde está o DTO usado para transferir dados.
+using aula2ApiServico.Models.Dtos; // Importa o namespace onde está o modelo Chamado.
+using aula2ApiServico; // Importa o namespace onde está o DTO usado para transferir dados.
 
 namespace aula2ApiServico.Controllers // Define o namespace onde o controller está localizado.
 {
