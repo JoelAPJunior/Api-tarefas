@@ -31,9 +31,27 @@ namespace aula2ApiServico.Controllers
         private static int _proximoId = 3;
 
         [HttpGet]
-        public async Task<IActionResult> BuscarTodos()
+        public async Task<IActionResult> BuscarTodos([FromQuery] string? search, [FromQuery] string? situacao)
+
         {
-            var chamados = await _context.Chamados.ToListAsync();
+            var query = _context.Chamados.AsQueryable();
+            
+
+            if(search is not null)
+            {
+                query = query.Where(x => x.Titulo.Contains(search) || x.Descricao.Contains(search));
+                //chamados = await _context.Chamados
+                //.Where(x => x.Titulo.Contains(search) || x.Descricao.Contains(search))
+                //.ToListAsync();
+            }
+
+            if (situacao is not null)
+            {
+                query = query.Where(x => x.Status.Contains(search) || x.Descricao.Contains(search));
+            }
+            
+                var chamados = await query.ToListAsync();
+            
 
             return Ok(chamados);
         }
